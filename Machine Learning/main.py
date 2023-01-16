@@ -7,6 +7,7 @@ path_to_file = tf.keras.utils.get_file(
     'shakespeare.txt', 'https://storage.googleapis.com/download.tensorflow.org/data/shakespeare.txt')
 
 text = open('./text.txt', 'rb').read().decode(encoding='utf-8')
+# text = open(path_to_file, 'rb').read().decode(encoding='utf-8')
 
 vocab = sorted(set(text))
 
@@ -15,7 +16,7 @@ idx2char = np.array(vocab)
 
 text_as_int = np.array([char2idx[c] for c in text])
 
-seq_length = 100
+seq_length = 70
 examples_per_epoch = len(text)//(seq_length+1)
 
 char_dataset = tf.data.Dataset.from_tensor_slices(text_as_int)
@@ -81,27 +82,28 @@ def loss(labels, logits):
 
 
 example_batch_loss = loss(target_example_batch, example_batch_predictions)
-print("Prediction shape: ", example_batch_predictions.shape,
-      " # (batch_size, sequence_length, vocab_size)")
-print("scalar_loss:      ", example_batch_loss.numpy().mean())
 
 model.compile(optimizer='adam', loss=loss)
 
 checkpoint_dir = './training_checkpoints'
-checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt_{epoch}")
+checkpoint_prefix = os.path.join(checkpoint_dir, "checkpoints")
+model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
+
+print("Prediction shape: ", example_batch_predictions.shape,
+      " # (batch_size, sequence_length, vocab_size)")
+print("scalar_loss:      ", example_batch_loss.numpy().mean())
 
 checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_prefix,
     save_weights_only=True)
 
-EPOCHS = 10
+EPOCHS = 1000
 history = model.fit(dataset, epochs=EPOCHS, callbacks=[checkpoint_callback])
 
 tf.train.latest_checkpoint(checkpoint_dir)
 
 model = build_model(vocab_size, embedding_dim, rnn_units, batch_size=1)
 
-model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 
 model.build(tf.TensorShape([1, None]))
 
@@ -134,4 +136,4 @@ def generate_text(model, start_string):
     return (start_string + ''.join(text_generated))
 
 
-print(generate_text(model, start_string=u"ROMEO: "))
+print(generate_text(model, start_string=u"Banu Chrisnadi: [12/10/22 10:04 PM]\nHalo\n\n"))
