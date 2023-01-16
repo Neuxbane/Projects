@@ -1,0 +1,9 @@
+Using tensorflowjs inside an Angular7 project, I am encountering trouble in accessing the numerical values of a tensor2d object.
+
+Indeed:
+
+let tensor2d = tf.tensor2d( [[1,2],[3,4]])
+let tensor2d_array = tensor2d.dataSync()
+will give an Array object of shape (4,) instead of (2,2,) as I wish.
+
+How can I preserve the shape and get an array of my tensor. (Reshaping by hand is not practical in all cases, as I do not have access to a js matrix library in this project..).
