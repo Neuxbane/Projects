@@ -82,22 +82,23 @@ def loss(labels, logits):
 
 
 example_batch_loss = loss(target_example_batch, example_batch_predictions)
+print("Prediction shape: ", example_batch_predictions.shape,
+      " # (batch_size, sequence_length, vocab_size)")
+print("scalar_loss:      ", example_batch_loss.numpy().mean())
 
 model.compile(optimizer='adam', loss=loss)
 
 checkpoint_dir = './training_checkpoints'
 checkpoint_prefix = os.path.join(checkpoint_dir, "checkpoints")
-model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 
-print("Prediction shape: ", example_batch_predictions.shape,
-      " # (batch_size, sequence_length, vocab_size)")
-print("scalar_loss:      ", example_batch_loss.numpy().mean())
 
 checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
     filepath=checkpoint_prefix,
     save_weights_only=True)
 
-EPOCHS = 1000
+model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
+
+EPOCHS = 100
 history = model.fit(dataset, epochs=EPOCHS, callbacks=[checkpoint_callback])
 
 tf.train.latest_checkpoint(checkpoint_dir)
@@ -106,19 +107,18 @@ model = build_model(vocab_size, embedding_dim, rnn_units, batch_size=1)
 
 
 model.build(tf.TensorShape([1, None]))
+model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 
 model.summary()
 
 
-def generate_text(model, start_string):
+def generate_text(model, start_string, temperature = 1.0):
     num_generate = 1000
 
     input_eval = [char2idx[s] for s in start_string]
     input_eval = tf.expand_dims(input_eval, 0)
 
     text_generated = []
-
-    temperature = 1.0
 
     model.reset_states()
     for i in range(num_generate):
@@ -136,4 +136,5 @@ def generate_text(model, start_string):
     return (start_string + ''.join(text_generated))
 
 
-print(generate_text(model, start_string=u"Banu Chrisnadi: [12/10/22 10:04 PM]\nHalo\n\n"))
+print(generate_text(model, start_string=u"Banu Chrisnadi: [12/10/22 10:04 PM]\nHalo, nama kamu siapa?\n\nAnonymous Chat, [1/1/23 12:34 AM]\n"))
+while True: print(generate_text(model, start_string=u"Banu Chrisnadi: [12/10/22 10:04 PM]\n"+input('> ')+u"\n\nAnonymous Chat, [1/1/23 12:34 AM]\n"))
