@@ -98,7 +98,7 @@ checkpoint_callback = tf.keras.callbacks.ModelCheckpoint(
 
 model.load_weights(tf.train.latest_checkpoint(checkpoint_dir))
 
-EPOCHS = 1
+EPOCHS = 100
 history = model.fit(dataset, epochs=EPOCHS, callbacks=[checkpoint_callback])
 
 tf.train.latest_checkpoint(checkpoint_dir)
@@ -136,5 +136,5 @@ def generate_text(model, start_string, temperature = 1.0):
     return (start_string + ''.join(text_generated))
 
 
-print(generate_text(model, start_string=u"User: Halo\n"))
-while True: print(generate_text(model, start_string=u"User: \n"+input('> ')+u"\n\nAI: "))
+print(generate_text(model, start_string=u"m5m1ps4t@duck.com\nhalo"))
+while True: print(generate_text(model, start_string=u"m5m1ps4t@duck.com\n"+input('> ')+u"\n"))
