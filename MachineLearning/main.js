@@ -1,105 +1,187 @@
-const tf = require('@tensorflow/tfjs');
-const fs = require('fs');
+const LEARNING_RATE = 1.7
 
-const text = fs.readFileSync('text.txt', 'utf8');
+class NeuralNetwork {
+	constructor(inputs, outputs) {
+		this.inputs = inputs;
+		this.outputs = outputs;
 
-const charSet = Array.from(new Set(text.split('')));
-const dataSize = text.length;
-const vocabSize = charSet.length;
+		this.weights1 = new Matrix(this.outputs, this.inputs);
+		this.bias1 = new Matrix(this.outputs, 1);
+	}
 
-const charToIndex = charSet.reduce((obj, char, i) => {
-	obj[char] = i;
-	return obj;
-}, {});
+	// Feedforward function
+	predict(inputArray) {
+		// Convert input array to matrix
+		let inputs = Matrix.fromArray(inputArray);
 
-const indexToChar = charSet.reduce((arr, char, i) => {
-	arr[i] = char;
-	return arr;
-}, []);
+		// Calculate the weighted sum
+		let hidden = Matrix.multiply(this.weights1, inputs);
+		hidden.add(this.bias1);
 
-const inputText = text.split('');
-const inputSize = 100;
-const outputSize = 1;
+		// Apply the activation function (tanh)
+		hidden.map(x => Math.tanh(x));
 
-const input = tf.tensor(inputText.map(char => charToIndex[char]));
-const output = input.slice([inputSize], [outputSize]);
+		// Return the result as an array
+		return hidden.toArray();
+	}
 
-const model = tf.sequential();
+	// Train the network using stochastic gradient descent
+	train(inputArray, targetArray) {
+		// Convert input and target arrays to matrices
+		let inputs = Matrix.fromArray(inputArray);
+		let targets = Matrix.fromArray(targetArray);
 
-model.add(tf.layers.lstm({
-	units: 256,
-	inputShape: [inputSize, vocabSize],
-	returnSequences: true
-}));
+		// Calculate the weighted sum
+		let hidden = Matrix.multiply(this.weights1, inputs);
+		hidden.add(this.bias1);
 
-model.add(tf.layers.dropout(0.2));
+		// Apply the activation function (tanh)
+		hidden.map(x => Math.tanh(x));
 
-model.add(tf.layers.lstm({
-	units: 256,
-	returnSequences: true
-}));
+		// Calculate the error
+		let error = Matrix.subtract(targets, hidden);
 
-model.add(tf.layers.dropout(0.2));
+		// Calculate the gradient of the weights
+		let gradients = Matrix.multiply(error, inputs.transpose());
+		gradients.multiply(LEARNING_RATE);
 
-model.add(tf.layers.lstm({
-	units: 256
-}));
+		// Update the weights and biases
+		this.weights1.add(gradients);
+		this.bias1.add(error.multiply(LEARNING_RATE));
+	}
+}
 
-model.add(tf.layers.dropout(0.2));
+class Matrix {
+	constructor(rows, cols) {
+		this.rows = rows;
+		this.cols = cols;
+		this.data = [];
 
-model.add(tf.layers.dense({
-	units: vocabSize,
-	activation: 'softmax'
-}));
-
-const optimizer = tf.train.rmsprop(0.01);
-
-model.compile({
-	optimizer,
-	loss: 'categoricalCrossentropy'
-});
-
-const oneHot = (i) => {
-	const arr = new Array(vocabSize).fill(0);
-	arr[i] = 1;
-	return arr;
-};
-
-const xs = tf.tensor(inputText.slice(0, -1).map((char, i) => oneHot(charToIndex[char])));
-const ys = tf.tensor(inputText.slice(1).map((char, i) => oneHot(charToIndex[char])));
-
-model.fit(xs, ys, {
-	epochs: 100,
-	callbacks: {
-		onEpochEnd: async (epoch, log) => {
-			console.log(`Epoch ${epoch}: loss = ${log.loss}`);
-			const seed = 'I';
-			const temperature = 0.5;
-			const generated = await generateText(model, seed, temperature);
-			console.log(generated);
+		for (let i = 0; i < this.rows; i++) {
+		this.data[i] = [];
+		for (let j = 0; j < this.cols; j++) {
+			this.data[i][j] = 0;
+		}
 		}
 	}
-});
 
-async function generateText(model, seed, temperature) {
-	let generated = '';
-	let sentence = seed;
-	let state = null;
-	while (sentence.length < 100) {
-		const inputBuffer = tf.buffer([1, inputSize, vocabSize]);
-		for (let i = 0; i < inputSize; i++) {
-			inputBuffer.set(1, 0, i, charToIndex[sentence[sentence.length - inputSize + i]]);
+	static fromArray(arr) {
+		let m = new Matrix(arr.length, 1);
+		for (let i = 0; i < arr.length; i++) {
+			m.data[i][0] = arr[i];
 		}
-		const input = inputBuffer.toTensor();
-		const output = model.predict(input, {
-			initialState: state
-		});
-		const logits = output.as1D();
-		const probs = tf.div(tf.exp(tf.div(logits, temperature)), tf.sum(tf.exp(tf.div(logits, temperature))));
-		const charIndex = (await probs.data())[0];
-		generated += indexToChar[charIndex];
-		sentence = sentence.slice(1) + indexToChar[charIndex];
-		state = output.slice([0, outputSize - 1], [1, outputSize]);
+		return m;
 	}
-	return generated;
+
+	static subtract(a, b) {
+		let result = new Matrix(a.rows, a.cols);
+		for (let i = 0; i < result.rows; i++) {
+			for (let j = 0; j < result.cols; j++) {
+				result.data[i][j] = a.data[i][j] - b.data[i][j];
+			}
+		}
+		return result;
+	}
+
+	transpose() {
+		for (let i = 0; i < this.rows; i++) {
+			for (let j = 0; j < this.cols; j++) {
+				this.data[j][i] = this.data[i][j];
+			}
+		}
+		return this;
+	}
+
+	multiply(target) {
+		let result = new Matrix(this.rows, target.cols);
+		for (let i = 0; i < result.rows; i++) {
+			for (let j = 0; j < result.cols; j++) {
+				let sum = 0;
+				for (let k = 0; k < this.cols; k++) {
+					sum += this.data[i][k] * target.data[k][j];
+				}
+				result.data[i][j] = sum;
+			}
+		}
+		return result;
+	}
+
+	static multiply(a, b){
+		let result = new Matrix(a.rows, b.cols);
+		for (let i = 0; i < result.rows; i++) {
+			for (let j = 0; j < result.cols; j++) {
+				let sum = 0;
+				for (let k = 0; k < a.cols; k++) {
+					sum += a.data[i][k] * b.data[k][j];
+				}
+				result.data[i][j] = sum;
+			}
+		}
+		return result;
+	}
+
+	toArray() {
+		let arr = [];
+		for (let i = 0; i < this.rows; i++) {
+			for (let j = 0; j < this.cols; j++) {
+				arr.push(this.data[i][j]);
+			}
+		}
+		return arr;
+	}
+
+	add(n) {
+		if (n instanceof Matrix) {
+			for (let i = 0; i < this.rows; i++) {
+				for (let j = 0; j < this.cols; j++) {
+					this.data[i][j] += n.data[i][j];
+				}
+			}
+		} else {
+			for (let i = 0; i < this.rows; i++) {
+				for (let j = 0; j < this.cols; j++) {
+					this.data[i][j] += n;
+				}
+			}
+		}
+	}
+
+	map(func) {
+		for (let i = 0; i < this.rows; i++) {
+			for (let j = 0; j < this.cols; j++) {
+				let val = this.data[i][j];
+				this.data[i][j] = func(val);
+			}
+		}
+		return this;
+	}
+
+	static hadamard(a, b) {
+		let result = new Matrix(a.rows, a.cols);
+		for (let i = 0; i < result.rows; i++) {
+			for (let j = 0; j < result.cols; j++) {
+				result.data[i][j] = a.data[i][j] * b.data[i][j];
+			}
+		}
+		return result;
+	}
+}
+
+// Create a new neural network with 1 input and 2 outputs
+let nn = new NeuralNetwork(1, 2);
+
+// Define the training data
+let inputs = [[1], [2], [3], [4]];
+let targets = [[1, 0], [0, 1], [0, 1], [1, 0]];
+
+// Train the network using the training data
+for (let i = 0; i < 10000; i++) {
+	let index = Math.floor(Math.random() * inputs.length);
+	nn.train(inputs[index], targets[index]);
+}
+
+// Test the network with new data
+let testData = [[5], [6], [7], [8]];
+for (let i = 0; i < testData.length; i++) {
+	console.log(nn.predict(testData[i]));
 }
