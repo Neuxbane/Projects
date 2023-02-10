@@ -1,16 +1,72 @@
 aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890!@#$%^&*()-=+_/?,.:;'"[]{}`~\<>|
-Data: A transformer is a deep learning model that adopts the mechanism of self-attention, differentially weighting the significance of each part of the input data. It is used primarily in the fields of natural language processing (NLP)[1] and computer vision (CV).[2] Like recurrent neural networks (RNNs), transformers are designed to process sequential input data, such as natural language, with applications towards tasks such as translation and text summarization. However, unlike RNNs, transformers process the entire input all at once. The attention mechanism provides context for any position in the input sequence. For example, if the input data is a natural language sentence, the transformer does not have to process one word at a time. This allows for more parallelization than RNNs and therefore reduces training times.[1] Transformers were introduced in 2017 by a team at Google Brain[1] and are increasingly the model of choice for NLP problems,[3] replacing RNN models such as long short-term memory (LSTM). The additional training parallelization allows training on larger datasets. This led to the development of pretrained systems such as BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pre-trained Transformer), which were trained with large language datasets, such as the Wikipedia Corpus and Common Crawl, and can be fine-tuned for specific tasks.[4][5].
-Question: What is a transformer?
-Answer: A transformer is a deep learning model that adopts the mechanism of self-attention, differentially weighting the significance of each part of the input data. It is used primarily in the fields of natural language processing (NLP)[1] and computer vision (CV).[2]
+Data: Apple Inc. was founded on April 1, 1976, by Steve Jobs, Steve Wozniak, and Ronald Wayne. The company is headquartered in Cupertino, California and is best known for its iPhone, iPad, and Mac computers. Apple has become one of the largest technology companies in the world and is known for its innovation and sleek design.
+Question: When was Apple founded?
+Answer: Apple was founded on April 1, 1976.
 
-Data: The physical universe is defined as all of space and time[a] (collectively referred to as spacetime) and their contents.[10] Such contents comprise all of energy in its various forms, including electromagnetic radiation and matter, and therefore planets, moons, stars, galaxies, and the contents of intergalactic space.[22][23][24] The universe also includes the physical laws that influence energy and matter, such as conservation laws, classical mechanics, and relativity.[25] The universe is often defined as "the totality of existence", or everything that exists, everything that has existed, and everything that will exist.[25] In fact, some philosophers and scientists support the inclusion of ideas and abstract concepts—such as mathematics and logic—in the definition of the universe.[27][28][29] The word universe may also refer to concepts such as the cosmos, the world, and nature.[30][31]
-Question: Do you know what is the totality of existence?
-Answer: The universe is often defined as "the totality of existence", or everything that exists, everything that has existed, and everything that will exist.[25]
+Data: Facebook is a social media platform that was founded on February 4, 2004, by Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, and Chris Hughes. The company is headquartered in Menlo Park, California and has over 2.7 billion monthly active users as of December 2021. Facebook allows users to connect with friends and family, share content, and join interest-based groups.
+Question: Who founded Facebook?
+Answer: Facebook was founded by Mark Zuckerberg, Eduardo Saverin, Andrew McCollum, Dustin Moskovitz, and Chris Hughes.
 
-Data: Indonesia,[a] officially the Republic of Indonesia,[b] is a transcontinental country spanning the southeast part of Asia and western part of Oceania between the Indian and Pacific oceans. It consists of over 17,000 islands, including Sumatra, Java, Sulawesi, and parts of Borneo and New Guinea. Indonesia is the world's largest archipelagic state and the 14th-largest country by area, at 1,904,569 square kilometres (735,358 square miles). With over 275 million people, Indonesia is the world's fourth-most populous country and the most populous Muslim-majority country. Java, the world's most populous island, is home to more than half of the country's population. Indonesia is a presidential republic with an elected legislature. It has 38 provinces, of which nine have special status. The country's capital, Jakarta, is the world's second-most populous urban area. Indonesia shares land borders with Papua New Guinea, East Timor, and the eastern part of Malaysia, as well as maritime borders with Singapore, Vietnam, Thailand, the Philippines, Australia, Palau, and India (Andaman and Nicobar Islands). Despite its large population and densely populated regions, Indonesia has vast areas of wilderness that support one of the world's highest levels of biodiversity. The Indonesian archipelago has been a valuable region for trade since at least the seventh century, when the Srivijaya Kingdom formed trade links with China. Indonesian history has been influenced by foreign powers drawn to its natural resources. Under Indian influence, Hindu and Buddhist kingdoms flourished from the early centuries CE. Muslim traders later brought Islam, and European powers fought one another to monopolise trade in the Spice Islands of Maluku during the Age of Discovery. Following three and a half centuries of Dutch colonialism, Indonesia secured its independence after World War II. Indonesia's history has since been turbulent, with challenges posed by natural disasters, corruption, separatism, a democratisation process, and periods of rapid economic change. Indonesia consists of thousands of distinct native ethnic and hundreds of linguistic groups, with Javanese being the largest. A shared identity has developed with the motto "Bhinneka Tunggal Ika" ("Unity in Diversity" literally, "many, yet one"), defined by a national language, cultural diversity, religious pluralism within a Muslim-majority population, and a history of colonialism and rebellion against it. The economy of Indonesia is the world's 17th-largest by nominal GDP and the 7th-largest by PPP. It is a regional power and is considered a middle power in global affairs. The country is a member of several multilateral organisations, including the United Nations, World Trade Organization, G20, and a founding member of the Non-Aligned Movement, Association of Southeast Asian Nations, East Asia Summit, D-8 and the Organisation of Islamic Cooperation.
-Question: How much the area of Indonesia?
-Answer: ndonesia is the world's largest archipelagic state and the 14th-largest country by area, at 1,904,569 square kilometres (735,358 square miles).
+Data: Amazon is an e-commerce company that was founded on July 5, 1994, by Jeff Bezos. The company is headquartered in Seattle, Washington and offers a wide range of products and services, including online retail, cloud computing, artificial intelligence, and more. Amazon is one of the largest companies in the world and has revolutionized the way people shop online.
+Question: When was Amazon founded?
+Answer: Amazon was founded on July 5, 1994, by Jeff Bezos.
 
-Data: OpenAI is an American artificial intelligence (AI) research laboratory consisting of the non-profit OpenAI Incorporated (OpenAI Inc.) and its for-profit subsidiary corporation OpenAI Limited Partnership (OpenAI LP). OpenAI conducts AI research to promote and develop friendly AI in a way that benefits all humanity. The organization was founded in San Francisco in 2015 by Sam Altman, Reid Hoffman, Jessica Livingston, Elon Musk, Ilya Sutskever, Peter Thiel and others,[5][1][6] who collectively pledged US$1 billion. Musk resigned from the board in 2018 but remained a donor. Microsoft provided OpenAI LP a $1 billion investment in 2019 and a second multi-year investment in January 2023, reported to be $10 billion.[7]
-Question: Who is the founder of OpenAI?
-Answer: The organization was founded in San Francisco in 2015 by Sam Altman, Reid Hoffman, Jessica Livingston, Elon Musk, Ilya Sutskever, Peter Thiel and others,[5][1][6] who collectively pledged US$1 billion.
+Data: The Milky Way galaxy is a barred spiral galaxy that contains our Solar System. It is estimated to have a diameter of about 100,000 light-years and contains billions of stars, as well as gas, dust, and dark matter. The Milky Way is part of the Local Group of galaxies and is located in the Virgo Supercluster.
+Question: What type of galaxy is the Milky Way?
+Answer: The Milky Way is a barred spiral galaxy.
+
+Data: The Sun is a star located at the center of our Solar System. It is an almost perfect spherical ball of hot plasma and is the source of light and heat for the Earth and the other planets. The Sun is estimated to be about 4.6 billion years old and is one of over 100 billion stars in the Milky Way galaxy.
+Question: What is the Sun?
+Answer: The Sun is a star located at the center of our Solar System and is the source of light and heat for the Earth and the other planets.
+
+Data: The Moon is Earth's only natural satellite and is the fifth largest moon in the Solar System. It was formed about 4.5 billion years ago, shortly after the formation of the Solar System, and has a significant impact on Earth's tides and weather patterns. The Moon is the largest relative to its host planet in the Solar System and is approximately one-quarter the size of Earth.
+Question: What is the Moon?
+Answer: The Moon is Earth's only natural satellite and is the fifth largest moon in the Solar System. It has a significant impact on Earth's tides and weather patterns.
+
+Data: English is a West Germanic language that originated in England and is now the most widely spoken language in the world. It is estimated that there are over 1.5 billion speakers of English as a first or second language. English is the language of international communication and is widely used in business, science, and technology.
+Question: What is English?
+Answer: English is a West Germanic language that originated in England and is now the most widely spoken language in the world.
+
+Data: Spanish is a Romance language that originated in the Iberian Peninsula and is now the second most widely spoken language in the world, with over 460 million speakers. Spanish is the official language in 21 countries, including Spain, Mexico, and most of Central and South America. It is also widely used as a second language in the United States.
+Question: What is Spanish?
+Answer: Spanish is a Romance language that originated in the Iberian Peninsula and is now the second most widely spoken language in the world, with over 460 million speakers.
+
+Data: Mandarin Chinese is a member of the Sino-Tibetan language family and is the most widely spoken language in the world, with over 1.3 billion speakers. Mandarin is the official language of the People's Republic of China and is widely spoken in Taiwan and other Chinese communities around the world. It is a tonal language, which means that the meaning of a word can change depending on the tone used to pronounce it.
+Question: What is Mandarin Chinese?
+Answer: Mandarin Chinese is a member of the Sino-Tibetan language family and is the most widely spoken language in the world, with over 1.3 billion speakers.
+
+Data: A romantic relationship is a type of relationship between two people who are in love with each other. Romantic relationships can involve various forms of intimacy, including physical, emotional, and spiritual intimacy. The quality of a romantic relationship can be affected by factors such as communication, trust, and mutual support.
+Question: What is a romantic relationship?
+Answer: A romantic relationship is a type of relationship between two people who are in love with each other.
+
+Data: A friendship is a type of relationship between two people who share common interests and feelings of affection. Friendships can be formed through shared experiences, common activities, and mutual support. A strong friendship is built on trust, honesty, and open communication.
+Question: What is a friendship?
+Answer: A friendship is a type of relationship between two people who share common interests and feelings of affection.
+
+Data: A family relationship is a type of relationship between people who are related by blood, marriage, or adoption. Family relationships can be strong and supportive, but they can also be complex and challenging. Good family relationships are built on communication, mutual respect, and understanding.
+Question: What is a family relationship?
+Answer: A family relationship is a type of relationship between people who are related by blood, marriage, or adoption.
+
+Data: Sodium is a chemical element with the symbol Na and atomic number 11. It is a soft, silvery-white metal that is highly reactive, and is a member of the alkali metal group on the periodic table. Sodium is an important component of many chemical compounds, including table salt (NaCl).
+Question: What is the symbol for sodium on the periodic table?
+Answer: The symbol for sodium on the periodic table is Na.
+
+Data: Oxygen is a chemical element with the symbol O and atomic number 8. It is a member of the chalcogen group on the periodic table, a highly reactive nonmetal, and an oxidizing agent that readily forms oxides with most elements as well as with other compounds. By mass, oxygen is the third-most abundant element in the universe, after hydrogen and helium.
+Question: What is the symbol for oxygen on the periodic table?
+Answer: The symbol for oxygen on the periodic table is O.
+
+Data: Carbon is a chemical element with the symbol C and atomic number 6. It is a nonmetal, and is the fourth most abundant element in the universe by mass. Carbon has the unique ability to form a large number of compounds, including long chains of carbon atoms known as organic molecules. Carbon is the basis of all known life on Earth.
+Question: What is the symbol for carbon on the periodic table?
+Answer: The symbol for carbon on the periodic table is C.
+
+Data: Humans, also known as Homo sapiens, are a species of primates that are believed to have evolved in Africa about 300,000 years ago. They are the only species of the genus Homo that still exists today. Humans are characterized by their ability to walk upright on two legs, use tools, and communicate through language. They have spread to every corner of the world and have established complex societies and cultures.
+Question: What species do humans belong to?
+Answer: Humans belong to the species Homo sapiens.
+
+Data: The human brain is the central organ of the human nervous system and is responsible for controlling all of the body's functions. It is the most complex structure in the known universe, with over 100 billion neurons and trillions of connections. The human brain is responsible for consciousness, thought, emotion, perception, and movement. It is also capable of learning, memory, and problem-solving.
+Question: What is the main function of the human brain?
+Answer: The main function of the human brain is to control all of the body's functions and to facilitate consciousness, thought, emotion, perception, and movement.
+
+Data: The human heart is a muscular organ that is located in the chest and is responsible for pumping blood throughout the body. It is composed of four chambers: the right atrium, right ventricle, left atrium, and left ventricle. Blood from the body is collected in the right atrium and is pumped into the right ventricle, which then pumps it to the lungs for oxygenation. The oxygenated blood then returns to the heart and is pumped into the left ventricle, which then pumps it to the rest of the body.
+Question: What is the main function of the human heart?
+Answer: The main function of the human heart is to pump blood throughout the body.
