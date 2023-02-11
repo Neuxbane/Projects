@@ -70,3 +70,43 @@ Answer: The main function of the human brain is to control all of the body's fun
 Data: The human heart is a muscular organ that is located in the chest and is responsible for pumping blood throughout the body. It is composed of four chambers: the right atrium, right ventricle, left atrium, and left ventricle. Blood from the body is collected in the right atrium and is pumped into the right ventricle, which then pumps it to the lungs for oxygenation. The oxygenated blood then returns to the heart and is pumped into the left ventricle, which then pumps it to the rest of the body.
 Question: What is the main function of the human heart?
 Answer: The main function of the human heart is to pump blood throughout the body.
+
+Data: A quantum computer is a type of computer that uses quantum mechanics to store and process information. Unlike classical computers, which use binary bits to represent information, quantum computers use quantum bits, or qubits, which can be in multiple states at the same time. This allows quantum computers to perform certain types of calculations much faster than classical computers.
+Question: What is a quantum computer?
+Answer: A quantum computer is a type of computer that uses quantum mechanics to store and process information.
+
+Data: D-Wave Systems is a company that specializes in the development and production of quantum computers. Founded in 1999, D-Wave is headquartered in Burnaby, Canada and is considered to be the world's first commercial quantum computing company. D-Wave's quantum computers use a type of quantum algorithm known as quantum annealing to solve complex optimization problems.
+Question: Who is the world's first commercial quantum computing company?
+Answer: D-Wave Systems is the world's first commercial quantum computing company.
+
+Data: IBM is a technology company that is at the forefront of quantum computing research and development. IBM has built a number of quantum computers, including the IBM Q, which is one of the largest and most powerful quantum computers in the world. IBM provides access to its quantum computers through the IBM Cloud and has developed a number of software tools to help developers and researchers take advantage of quantum computing.
+Question: Who has built one of the largest and most powerful quantum computers in the world?
+Answer: IBM has built one of the largest and most powerful quantum computers in the world, called the IBM Q.
+
+Data: Quantum cryptography is a type of cryptography that uses the principles of quantum mechanics to secure communication. In quantum cryptography, information is encoded in the state of a quantum particle, such as a photon, and transmitted from one location to another. Because quantum mechanics forbids the copying of quantum states, this allows for secure communication that is resistant to eavesdropping.
+Question: What is quantum cryptography?
+Answer: Quantum cryptography is a type of cryptography that uses the principles of quantum mechanics to secure communication.
+
+Data: The field of quantum computing is still in its early stages, but it holds great promise for solving complex problems in fields such as cryptography, finance, and chemistry. Some experts believe that quantum computers will eventually be able to solve problems that are currently beyond the reach of classical computers. However, there are also challenges associated with building and using quantum computers, such as maintaining the stability of qubits and developing new algorithms to take advantage of quantum computing's unique capabilities.
+Question: What are some of the challenges associated with building and using quantum computers?
+Answer: Some of the challenges associated with building and using quantum computers include maintaining the stability of qubits and developing new algorithms to take advantage of quantum computing's unique capabilities.
+
+Data: The Pythagorean Theorem states that in a right triangle, the square of the length of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides. It can be written as a formula: c^2 = a^2 + b^2, where c is the length of the hypotenuse and a and b are the lengths of the other two sides.
+Question: What does the Pythagorean Theorem state?
+Answer: The Pythagorean Theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the other two sides.
+
+Data: Fermat's Last Theorem is a famous problem in number theory that states that no three positive integers a, b, and c can satisfy the equation a^n + b^n = c^n for any integer value of n greater than 2. It was first conjectured by Pierre de Fermat in 1637 and was finally proven in 1994 by Andrew Wiles.
+Question: What is Fermat's Last Theorem?
+Answer: Fermat's Last Theorem is a famous problem in number theory that states that no three positive integers a, b, and c can satisfy the equation a^n + b^n = c^n for any integer value of n greater than 2.
+
+Data: The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, starting from 0 and 1. The sequence goes 0, 1, 1, 2, 3, 5, 8, 13, 21, and so on. The Fibonacci sequence is named after Leonardo of Pisa, who was also known as Fibonacci, and was introduced to the Western world through his book, Liber Abaci.
+Question: What is the Fibonacci sequence?
+Answer: The Fibonacci sequence is a series of numbers in which each number is the sum of the two preceding ones, starting from 0 and 1.
+
+Data: The Euclidean Algorithm is a method for finding the greatest common divisor (GCD) of two or more integers. The GCD of two numbers is the largest positive integer that divides both numbers without a remainder. The Euclidean Algorithm can be used to find the GCD of any two numbers and is named after the ancient Greek mathematician Euclid.
+Question: What is the Euclidean Algorithm?
+Answer: The Euclidean Algorithm is a method for finding the greatest common divisor (GCD) of two or more integers.
+
+Data: The Binomial Theorem is a formula that expands the power of a binomial, which is an expression consisting of two terms, such as (x + y). The Binomial Theorem can be used to find the expansion of a binomial raised to any positive integer power. It was first discovered by the Persian mathematician Al-Karaji in the 10th century, but is named after the German mathematician Isaac Newton, who popularized it in the 17th century.
+Question: What is the Binomial Theorem?
+Answer: The Binomial Theorem is a formula that expands the power of a binomial, which is an expression consisting of two terms, such as (x + y).
